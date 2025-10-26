@@ -16,8 +16,9 @@ const InputForm = ({ onSubmit }) => {
       const formData = new FormData();
       formData.append('file', sequence);
 
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
       const response = await axios.post(
-        "http://localhost:5001/classify",
+        `${apiUrl}/classify`,
         formData,
         {
           headers: {
